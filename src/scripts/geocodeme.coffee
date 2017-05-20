@@ -8,18 +8,17 @@
 #   None
 #
 # Commands:
-#   hubot geocode me <string> - Geocodes the string and return latitude,longitude
-#   hubot where is <string> - Geocodes the string and return latitude,longitude
+#   hubot maps (geocode|where) <string> - Geocodes the string and return latitude,longitude
 #
 # Author:
 #   mattheath
 
 module.exports = (robot) ->
-  robot.respond /geocode( me)? (.*)/i, (msg) ->
+  robot.respond /maps geocode (.*)/i, (msg) ->
     query = msg.match[2]
     geocodeMe msg, query, (text) ->
       msg.reply text
-  robot.respond /where is (.*)/i, (msg) ->
+  robot.respond /maps where (.*)/i, (msg) ->
     query = msg.match[1]
     geocodeMe msg, query, (text) ->
       msg.reply text
