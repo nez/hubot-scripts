@@ -15,7 +15,7 @@
 
 module.exports = (robot) ->
   robot.respond /maps geocode (.*)/i, (msg) ->
-    query = msg.match[2]
+    query = msg.match[1]
     geocodeMe msg, query, (text) ->
       msg.reply text
   robot.respond /maps where (.*)/i, (msg) ->
